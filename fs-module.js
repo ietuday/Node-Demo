@@ -1,11 +1,11 @@
 var fs = require("fs");
 var path = './fs.txt';
 
-//Open file at given path to read('r' - read mode) 
+//Open file at given path to read('r' - read mode)
 
 fs.open(path, 'r', function(err, fd) {
     fs.fstat(fd,function(err, stats){
-      vae totalBytes = stats.size;
+      var totalBytes = stats.size;
       var bytesRead = 0;
       var buffer = new Buffer(totalBytes);
 
@@ -34,7 +34,9 @@ fs.open(path, 'r', function(err, fd) {
       fs.close(fd, function() {
         console.log("File Closed");
       });
+
       console.log("File read Completed");
+
       console.log("Total bytes read : ", +totalBytes);
 
       //Display  on Screen
